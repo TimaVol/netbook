@@ -89,7 +89,8 @@ export default function WeAreConnecting() {
         </p>
 
         <div className="flex w-max cursor-pointer items-center rounded-[14px] bg-darkBlue py-[22px] px-[38px] text-white shadow-sm shadow-darkBlue">
-          <p className="mr-[20px] text-[14px]">Discover me</p> <ArrowRight />
+          <p className="mr-[20px] text-[14px] font-medium">Discover me</p>{" "}
+          <ArrowRight />
         </div>
       </div>
     </div>
