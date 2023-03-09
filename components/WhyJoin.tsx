@@ -4,7 +4,7 @@ import firstImg from "@/public/images/whyJoin/1.png";
 import secondImg from "@/public/images/whyJoin/2.png";
 import thirdImg from "@/public/images/whyJoin/3.png";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const items = [
   {
@@ -22,14 +22,29 @@ const items = [
 ];
 
 export default function WhyJoin() {
+  const [isVideoPlaing, setIsVideoPlaing] = useState(false);
 
-    const viedo = useRef<HTMLVideoElement>(null)
-    const playBg = useRef<HTMLImageElement>(null)
+  const video = useRef<HTMLVideoElement>(null);
+  const playBg = useRef<HTMLImageElement>(null);
+  const playBtn = useRef<HTMLImageElement>(null);
 
-    const videoHandler = () =>{
-        playBg.current!.style.opacity = '0'
-        playBg.current!.style.visibility = 'hidden'
+  const videoHandler = () => {
+    if (!isVideoPlaing) {
+      playBg.current!.style.opacity = "0";
+      playBtn.current!.style.opacity = "0";
+      playBg.current!.style.visibility = "hidden";
+      playBtn.current!.style.visibility = "hidden";
+      video.current!.play();
+      setIsVideoPlaing(true);
+    } else {
+      playBg.current!.style.opacity = "1";
+      playBtn.current!.style.opacity = "1";
+      playBg.current!.style.visibility = "visible";
+      playBtn.current!.style.visibility = "visible";
+      video.current!.pause();
+      setIsVideoPlaing(false);
     }
+  };
 
   return (
     <div className="container items-center py-[30px] md:flex md:py-[36px]">
@@ -53,11 +68,27 @@ export default function WhyJoin() {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-1 items-center gap-[20px] md:grid-cols-2 md:gap-[26px] md:w-1/2">
+      <div className="grid grid-cols-1 items-center gap-[20px] md:w-1/2 md:grid-cols-2 md:gap-[26px]">
         <div className="relative md:row-span-2">
-          <Play onClick={videoHandler} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10" />
-          <video ref={viedo} className="absolute h-full w-full" src=""></video>
-          <Image ref={playBg} src={firstImg} alt="img" className="transition-all"/>
+          <div
+            ref={playBtn}
+            onClick={videoHandler}
+            className="absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+          >
+            <Play />
+          </div>
+          <video
+            onClick={videoHandler}
+            ref={video}
+            className="absolute h-full w-full"
+            src="/video.mp4"
+          ></video>
+          <Image
+            ref={playBg}
+            src={firstImg}
+            alt="img"
+            className="relative z-10 transition-all"
+          />
         </div>
         <Image src={secondImg} alt="img" />
         <Image src={thirdImg} alt="img" />
