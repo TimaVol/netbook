@@ -69,7 +69,7 @@ export default function WhyJoin() {
         ))}
       </div>
       <div className="grid grid-cols-1 items-center gap-[20px] md:w-1/2 md:grid-cols-2 md:gap-[26px]">
-        <div className="relative md:row-span-2">
+        <div className="relative rounded-[14px] shadow-lg md:row-span-2">
           <div
             ref={playBtn}
             onClick={videoHandler}
