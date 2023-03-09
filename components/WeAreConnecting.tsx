@@ -79,13 +79,13 @@ export default function WeAreConnecting() {
       ))}
 
       <div className="md:col-span-2 lg:col-auto lg:max-w-[365px]">
-        <h5 className="mb-[10px] font-medium text-darkBlue">Our Community</h5>
+        <h5 className="mb-[10px] font-medium text-darkBlue">Our Achievement</h5>
         <h2 className="mb-[19px] font-bold text-black-300">
-          Community Main Feature
+          We are Connecting You The Digital Life.
         </h2>
         <p className="mx-auto  mb-[38px] leading-5 text-lightGray md:leading-[26px]">
-          The wise man therefore always holds in these matters to this principle
-          of selection.
+          The scope the Social Media becomes crucial Is helps the business to
+          directly engage with their needs and wants.
         </p>
 
         <div className="flex w-max cursor-pointer items-center rounded-[14px] bg-darkBlue py-[22px] px-[38px] text-white shadow-sm shadow-darkBlue">
