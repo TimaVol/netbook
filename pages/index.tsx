@@ -1,5 +1,6 @@
 import AdMobApps from "@/components/AdMobApps";
 import Community from "@/components/Community";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Members from "@/components/Members";
 import News from "@/components/News";
@@ -16,6 +17,7 @@ export default function Home() {
       <Members />
       <AdMobApps />
       <News />
+      <Footer />
     </>
   );
 }
