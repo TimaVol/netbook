@@ -150,6 +150,7 @@ export default function Header() {
             <Image
               src={introImg}
               alt="img"
+              priority
               className=" md:h-[275px] md:w-1/2 lg:h-auto lg:max-w-[585px]"
             />
           </div>
