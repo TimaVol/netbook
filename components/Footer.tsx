@@ -52,7 +52,7 @@ export default function Footer() {
             email
           </p>
 
-          <div className="flex w-max rounded-[12px] border border-white">
+          <div className="flex w-full rounded-[12px] border border-white md:w-max">
             <input
               type="email"
               name=""

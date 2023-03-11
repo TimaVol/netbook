@@ -2,6 +2,7 @@ import { useState } from "react";
 // import Rodal from "rodal";
 import Link from "next/link";
 import SubMenuArrow from "@/public/icons/subMenuArrow.svg";
+import Search from "@/public/icons/search.svg";
 
 export default function Burger() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,7 +10,19 @@ export default function Burger() {
   return (
     <>
       <div>
-        <div className="text-black-300 font-medium">
+        <div className="mr-[18px] mb-4 flex w-full items-center border-b border-lightBlue pb-[5px] lg:mr-[47px] lg:pb-[10px]">
+          <Search className="mr-[8px] w-[13px]" />
+
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="Search Hare..."
+            className="text-12px w-full"
+          />
+        </div>
+
+        <div className="font-medium text-lightGray">
           <Link href={"#"} className="mb-4">
             <p className="text-lg ">Home</p>
           </Link>
@@ -46,7 +59,7 @@ export default function Burger() {
 
         <div
           onClick={() => setIsModalOpen(true)}
-          className="shadow-cyan-500/50 mx-auto flex w-max max-w-[202px] cursor-pointer items-center rounded-[14px] bg-darkBlue p-[15px] px-[20px] font-medium text-white shadow-lg md:py-[17px] md:px-[42px]"
+          className="shadow-cyan-500/50 mx-auto flex w-max max-w-[202px] cursor-pointer items-center rounded-[14px] bg-darkBlue p-[15px] px-[25px] font-medium text-white shadow-lg md:py-[17px] md:px-[42px]"
         >
           <p>Log in</p>
         </div>

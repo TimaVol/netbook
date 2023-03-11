@@ -5,6 +5,10 @@ import { slide as Menu } from "react-burger-menu";
 import { useState } from "react";
 import Hamburger from "hamburger-react";
 import Burger from "./Burger";
+import Link from "next/link";
+import SubMenuArrow from "@/public/icons/subMenuArrow.svg";
+import Search from "@/public/icons/search.svg";
+
 const styles = {
   bmBurgerBars: {
     background: "#373a47",
@@ -56,15 +60,72 @@ export default function Header() {
       <div>
         <div className="container">
           <header className="mb-[30px] flex items-center justify-between border-b border-lightBlue py-[15px] md:mb-[72px] md:py-[30px]">
-            <Logo />
+            <div className="flex items-center">
+              <Logo className="mr-5 lg:mr-[72px]" />
+              <div className="hidden text-[12px] font-medium text-lightGray md:flex">
+                <Link href={"#"} className="mr-4">
+                  <p>Home</p>
+                </Link>
+                <div className="relative mr-4">
+                  <p className="peer flex w-max cursor-pointer items-center">
+                    Community <SubMenuArrow className="ml-2" />
+                  </p>
+
+                  <div className="invisible absolute -bottom-[113px] left-0 z-10 h-[110px] w-[100px] rounded border border-lightGray bg-white opacity-0 transition-all duration-300 ease-in-out hover:visible hover:opacity-100 peer-hover:visible peer-hover:opacity-100">
+                    <div className="p-[10px] text-sm">
+                      <Link href={"#"} className="mb-2 w-max">
+                        About
+                      </Link>
+                      <Link href={"#"} className="mb-2 w-max">
+                        Docs
+                      </Link>
+                      <Link href={"#"} className="mb-2 w-max">
+                        Showcase
+                      </Link>
+                      <Link href={"#"} className="mb-2 w-max">
+                        Explore
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <Link href={"#"} className="mr-4">
+                  <p>Blog</p>
+                </Link>
+                <Link href={"#"} className="mr-4">
+                  <p>Events</p>
+                </Link>
+              </div>
+            </div>
+
+            <div className="hidden items-center md:flex">
+              <div className="mr-[18px] flex w-max items-center border-b border-lightBlue pb-[5px] lg:mr-[47px] lg:pb-[10px]">
+                <Search className="mr-[8px]" />
+
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Search Hare..."
+                  className="text-12px w-[108px]"
+                />
+              </div>
+
+              <div
+                onClick={() => setIsModalOpen(true)}
+                className="shadow-cyan-500/50 mx-auto flex w-max max-w-[202px] cursor-pointer items-center rounded-[14px] bg-darkBlue p-[15px] px-[20px] font-medium text-white shadow-lg md:py-[17px] md:px-[42px]"
+              >
+                <p>Log in</p>
+              </div>
+            </div>
 
             <div className="md:hidden">
               <Hamburger toggled={isBurgerOpen} toggle={burgerOnOpenHandler} />
             </div>
           </header>
 
-          <div className="flex flex-col md:flex-row">
-            <div className="mb-6 md:mb-0">
+          <div className="flex flex-col items-center justify-between md:flex-row">
+            <div className="mb-6 max-w-[515px] md:mb-0 md:mr-2 md:w-1/2">
               <div className="mb-[20px] w-max rounded-[8px] bg-lightBlue py-[12px] px-[30px] font-medium text-darkBlue">
                 Netbook community
               </div>
@@ -86,7 +147,11 @@ export default function Header() {
               </div>
             </div>
 
-            <Image src={introImg} alt="img" />
+            <Image
+              src={introImg}
+              alt="img"
+              className=" md:h-[275px] md:w-1/2 lg:h-auto lg:max-w-[585px]"
+            />
           </div>
         </div>
       </div>
