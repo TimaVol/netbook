@@ -59,7 +59,7 @@ export default function Header() {
     <>
       <div className="bg-primaryGradient">
         <div className="container">
-          <header className="mb-[30px] flex items-center justify-between border-b border-lightBlue py-[15px] md:mb-[72px] md:py-[30px]">
+          <header className="flex items-center justify-between border-b border-lightBlue py-[15px] md:py-[30px]">
             <div className="flex items-center">
               <Logo className="mr-5 lg:mr-[72px]" />
               <div className="hidden text-[12px] font-medium text-lightGray md:flex">
