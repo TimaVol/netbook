@@ -2,7 +2,7 @@ import Logo from "@/public/icons/logo.svg";
 import Twitter from "@/public/icons/footer/Twitter.svg";
 import Instagram from "@/public/icons/footer/instagram.svg";
 import Facebook from "@/public/icons/footer/facebook.svg";
-import Linkedin from "@/public/icons/footer/linkedin.svg";
+import Linkedin from "@/public/icons/footer/Linkedin.svg";
 
 const items = [
   {
