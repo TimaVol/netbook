@@ -57,7 +57,7 @@ export default function Header() {
   };
   return (
     <>
-      <div>
+      <div className="bg-primaryGradient">
         <div className="container">
           <header className="mb-[30px] flex items-center justify-between border-b border-lightBlue py-[15px] md:mb-[72px] md:py-[30px]">
             <div className="flex items-center">
@@ -124,7 +124,7 @@ export default function Header() {
             </div>
           </header>
 
-          <div className="flex flex-col items-center justify-between md:flex-row">
+          <div className="flex flex-col items-center justify-between py-[30px] md:flex-row md:py-[72px]">
             <div className="mb-6 max-w-[515px] md:mb-0 md:mr-2 md:w-1/2">
               <div className="mb-[20px] w-max rounded-[8px] bg-lightBlue py-[12px] px-[30px] font-medium text-darkBlue">
                 Netbook community
