@@ -8,6 +8,7 @@ import Burger from "./Burger";
 import Link from "next/link";
 import SubMenuArrow from "@/public/icons/subMenuArrow.svg";
 import Search from "@/public/icons/search.svg";
+import Rodal from "rodal";
 
 const styles = {
   bmBurgerBars: {
@@ -113,7 +114,7 @@ export default function Header() {
 
               <div
                 onClick={() => setIsModalOpen(true)}
-                className="shadow-cyan-500/50 mx-auto flex w-max max-w-[202px] cursor-pointer items-center rounded-[14px] bg-darkBlue p-[15px] px-[20px] font-medium text-white shadow-lg md:py-[17px] md:px-[42px]"
+                className="shadow-cyan-500/50 mx-auto flex w-max max-w-[202px] cursor-pointer items-center rounded-[14px] border border-transparent bg-darkBlue p-[15px] px-[20px] font-medium text-white shadow-lg transition-all hover:border-darkBlue hover:bg-white hover:text-darkBlue md:py-[17px] md:px-[42px]"
               >
                 <p>Log in</p>
               </div>
@@ -138,10 +139,16 @@ export default function Header() {
               </h5>
 
               <div className="flex">
-                <div className="mr-[18px] flex w-1/2 cursor-pointer items-center justify-center rounded-[14px] bg-darkBlue p-[15px] px-[18px] text-white shadow-sm shadow-darkBlue md:w-max md:py-[22px] md:px-[38px]">
+                <div
+                  onClick={() => setIsModalOpen(true)}
+                  className="mr-[18px] flex w-1/2 cursor-pointer items-center justify-center rounded-[14px] border border-transparent bg-darkBlue p-[15px] px-[18px] text-white shadow-sm shadow-darkBlue transition-all hover:border-darkBlue hover:bg-transparent hover:text-darkBlue hover:shadow-none md:w-max md:py-[22px] md:px-[38px]"
+                >
                   <p className="text-[14px] font-medium">About More</p>
                 </div>
-                <div className="flex w-1/2 cursor-pointer items-center justify-center rounded-[14px] border-darkBlue bg-darkBlue p-[15px] px-[18px] text-white  md:w-max md:py-[22px] md:px-[38px]">
+                <div
+                  onClick={() => setIsModalOpen(true)}
+                  className="flex w-1/2 cursor-pointer items-center justify-center rounded-[14px] border border-darkBlue border-transparent bg-darkBlue p-[15px]  px-[18px] text-white shadow-sm shadow-darkBlue transition-all hover:border-darkBlue hover:bg-transparent hover:text-darkBlue hover:shadow-none md:w-max md:py-[22px] md:px-[38px]"
+                >
                   <p className="text-[14px] font-medium">Invite Friend</p>
                 </div>
               </div>
@@ -156,6 +163,21 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      <Rodal
+        visible={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        closeOnEsc
+        width={301}
+        height={130}
+        className="text-black-100"
+      >
+        <div className="flex h-full items-center">
+          <h4 className="text-center">
+            Sorry, but this feature is currently unavailable
+          </h4>
+        </div>
+      </Rodal>
 
       <Menu
         styles={styles}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import Rodal from "rodal";
+import Rodal from "rodal";
 import Link from "next/link";
 import SubMenuArrow from "@/public/icons/subMenuArrow.svg";
 import Search from "@/public/icons/search.svg";
@@ -65,21 +65,20 @@ export default function Burger() {
         </div>
       </div>
 
-      {/* <Rodal
+      <Rodal
         visible={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         closeOnEsc
         width={301}
-        height={200}
-        className="text-black"
+        height={130}
+        className="text-black-100"
       >
-        <div className="mt-6">
-          <h4 className="mb-2">
+        <div className="flex h-full items-center">
+          <h4 className="text-center">
             Sorry, but this feature is currently unavailable
           </h4>
-          <p>The function of request demo is under development.</p>
         </div>
-      </Rodal> */}
+      </Rodal>
     </>
   );
 }
