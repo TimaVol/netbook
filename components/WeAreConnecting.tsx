@@ -5,6 +5,8 @@ import peopleImg from "@/public/images/WeAreConnecting/people.png";
 import githubImg from "@/public/images/WeAreConnecting/github.png";
 import Image from "next/image";
 import Link from "next/link";
+import Rodal from "rodal";
+import { useState } from "react";
 
 const items = [
   {
@@ -45,54 +47,78 @@ const items = [
 ];
 
 export default function WeAreConnecting() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="container grid grid-cols-1 gap-[20px] py-[30px] md:grid-cols-2 md:py-[75px] lg:grid-cols-3 lg:gap-[26px] ">
-      {items.map((item, idx) => (
-        <div
-          key={idx}
-          className="rounded-[14px] p-[20px] shadow-lg md:p-[44px]"
-        >
-          <div className="mb-[32px] flex items-center">
-            {item.title.icon}
-            <h4 className="ml-[10px] font-medium text-black-300">
-              {item.title.text}
-            </h4>
-          </div>
-          <div className="mb-[40px] flex items-center font-medium text-darkGray">
-            <Image
-              src={item.subtitle.img}
-              alt="img"
-              className={`mr-[10px] max-w-[60px] md:mr-[16px] ${item.subtitle.imgWidth}`}
-            />
-            {item.subtitle.text}
-          </div>
-          <p className="mb-[40px] leading-5 text-lightGray md:leading-[26px]">
-            {item.text}
-          </p>
-          <Link
-            href={"#"}
-            className="flex w-max items-center font-medium text-black-100 transition-all md:hover:text-darkBlue"
+    <>
+      <div className="container grid grid-cols-1 gap-[20px] py-[30px] md:grid-cols-2 md:py-[75px] lg:grid-cols-3 lg:gap-[26px] ">
+        {items.map((item, idx) => (
+          <div
+            key={idx}
+            className="rounded-[14px] p-[20px] shadow-lg md:p-[44px]"
           >
-            <p className="mr-[8px]">{item.linkText}</p> <ArrowRight />
-          </Link>
-        </div>
-      ))}
+            <div className="mb-[32px] flex items-center">
+              {item.title.icon}
+              <h4 className="ml-[10px] font-medium text-black-300">
+                {item.title.text}
+              </h4>
+            </div>
+            <div className="mb-[40px] flex items-center font-medium text-darkGray">
+              <Image
+                src={item.subtitle.img}
+                alt="img"
+                className={`mr-[10px] max-w-[60px] md:mr-[16px] ${item.subtitle.imgWidth}`}
+              />
+              {item.subtitle.text}
+            </div>
+            <p className="mb-[40px] leading-5 text-lightGray md:leading-[26px]">
+              {item.text}
+            </p>
+            <Link
+              href={"#"}
+              className="flex w-max items-center font-medium text-black-100 transition-all md:hover:text-darkBlue"
+            >
+              <p className="mr-[8px]">{item.linkText}</p> <ArrowRight />
+            </Link>
+          </div>
+        ))}
 
-      <div className="md:col-span-2 lg:col-auto lg:max-w-[365px]">
-        <h5 className="mb-[10px] font-medium text-darkBlue">Our Achievement</h5>
-        <h2 className="mb-[19px] font-bold text-black-300">
-          We are Connecting You The Digital Life.
-        </h2>
-        <p className="mx-auto  mb-[38px] leading-5 text-lightGray md:leading-[26px]">
-          The scope the Social Media becomes crucial Is helps the business to
-          directly engage with their needs and wants.
-        </p>
+        <div className="md:col-span-2 lg:col-auto lg:max-w-[365px]">
+          <h5 className="mb-[10px] font-medium text-darkBlue">
+            Our Achievement
+          </h5>
+          <h2 className="mb-[19px] font-bold text-black-300">
+            We are Connecting You The Digital Life.
+          </h2>
+          <p className="mx-auto  mb-[38px] leading-5 text-lightGray md:leading-[26px]">
+            The scope the Social Media becomes crucial Is helps the business to
+            directly engage with their needs and wants.
+          </p>
 
-        <div className="flex w-max cursor-pointer items-center rounded-[14px] bg-darkBlue py-[22px] px-[38px] text-white shadow-sm shadow-darkBlue">
-          <p className="mr-[20px] text-[14px] font-medium">Discover me</p>{" "}
-          <ArrowRight />
+          <div
+            onClick={() => setIsModalOpen(true)}
+            className="flex w-max cursor-pointer items-center rounded-[14px] border border-transparent bg-darkBlue py-[22px] px-[38px] text-white shadow-sm shadow-darkBlue transition-all hover:border-darkBlue hover:bg-transparent hover:text-darkBlue hover:shadow-none"
+          >
+            <p className="mr-[20px] text-[14px] font-medium">Discover me</p>{" "}
+            <ArrowRight />
+          </div>
         </div>
       </div>
-    </div>
+
+      <Rodal
+        visible={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        closeOnEsc
+        width={301}
+        height={130}
+        className="text-black-100"
+      >
+        <div className="flex h-full items-center">
+          <h4 className="text-center">
+            Sorry, but this feature is currently unavailable
+          </h4>
+        </div>
+      </Rodal>
+    </>
   );
 }

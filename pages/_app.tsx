@@ -1,4 +1,5 @@
 import "@/styles/globals.scss";
+import "rodal/lib/rodal.css";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 
